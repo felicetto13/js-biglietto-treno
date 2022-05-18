@@ -1,4 +1,55 @@
+/* Il programma dovrà chiedere all’utente il numero di chilometri che vuole percorrere e l’età del passeggero.
+Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio, secondo queste regole:
+il prezzo del biglietto è definito in base ai km (0.21 € al km)
+va applicato uno sconto del 20% per i minorenni
+va applicato uno sconto del 40% per gli over 65.
+L’output del prezzo finale va messo fuori in forma umana (con massimo due decimali, per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.
+Formula per il calcolo: km * 0.21 = prezzoBiglietto
+Stampare in HTML una lista con eta inserità, km inseriti ed il prezzo finale
+eta: 50
+km: 120
+prezzzo: 24,50
+BONUS:
+validare/ controllare i dati inseriti
+età è un numero?
+età è stata inserita
+km è un numero valido?
+posso inserire un minimo / massimo di km possibili? */
 
+/* 
+
+                        --- BONUS ---
+
+    inizializzo le variabili etaPasseggero e kmDaPercorrere dando come default ""
+    inizializzo il prezzo per kilometro in una variabile
+
+    ** CONTROLLO ETA' PASSEGGERO **
+    con un do/while faccio un ciclo che mi permette di richiedere all'utente client di inserire i dati corretti
+        -all'inizio del ciclo chiedo all'utente di inserire l'età del passeggero
+        -lo trasformo in un intero con la funzione ParseInt
+        -SE questo valore sarà un NaN o minore di 0 o maggiore di 109
+            allora uscirà un messaggio che mette in guardia l'utente di inserire valori corretti
+    il ciclo si interrompe dal momento che tutte le condizioni diventino true
+
+    ** CONTROLLO KM DA PERCORRERE **
+    con un do/while faccio un ciclo che mi permette di richiedere all'utente client di inserire i dati corretti
+        -all'inizio del ciclo chiedo all'utente di inserire i km da percorrere
+        -lo trasformo in un intero con la funzione ParseInt
+        -SE questo valore sarà un NaN o minore di 0 o maggiore di 450(così impostiamo un limite per i kilometri)
+            allora uscirà un messaggio che mette in guardia l'utente di inserire valori corretti
+    il ciclo si interrompe dal momento che tutte le condizioni diventino true
+
+    Controllare l'eta del passeggero
+        -SE il passeggero è minorenne
+            -allora il prezzo per kilometro sarà scontato del 20%
+        -ALTRIMENTI SE il passeggero sarà over65
+                        -allora il prezzo per kilometro sarà scontato del 40%
+    
+    Verificate queste condidizioni, calcoliamo il totale in una variabile
+    Essendo che il calcolo potrà produrre un numero con 2 o più cifre decimali, usiamo la funzione .toFixed(2) per ridurre il numero degli stessi a 2
+
+    Scriviamo i risultati nella pagina HTML come richiesto da consegna
+ */
 alert("Ciao, di seguito ti verranno richiesti dei dati utili per calcolare il costo del biglietto!")
 
 let prezzoKm = 0.21;
