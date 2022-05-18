@@ -2,13 +2,28 @@
 alert("Ciao, di seguito ti verranno richiesti dei dati utili per calcolare il costo del biglietto!")
 
 let prezzoKm = 0.21;
-let etaPasseggero = prompt("Inserite la vostra età");
-etaPasseggero = parseInt(etaPasseggero);
+let etaPasseggero = "";
+let kmDaPercorrere = "";
+
+do {
+    etaPasseggero = prompt("Inserite la vostra età");
+    etaPasseggero = parseInt(etaPasseggero);
+    if(isNaN(etaPasseggero) || etaPasseggero < 0 || etaPasseggero > 110){
+        alert("Attenzione!! Devi inserire un valore numerico valido compreso tra 0 e 109!")
+    }
+} while(isNaN(etaPasseggero) || etaPasseggero < 0 || etaPasseggero > 110 )
+
+do {
+    kmDaPercorrere = prompt("Inserite i kilometri che vorreste percorrere (fino 450km)");
+    kmDaPercorrere = parseInt(kmDaPercorrere);
+    if(isNaN(kmDaPercorrere) || kmDaPercorrere < 0 || kmDaPercorrere > 450){
+        alert("Attenzione!! Devi inserire un valore numerico valido compreso tra 0 e 450!")
+    }
+} while(isNaN(kmDaPercorrere) || kmDaPercorrere < 0 || kmDaPercorrere > 450 )
 
 
-let kmDaPercorrere = prompt("Inserite i kilometri che vorreste percorrere");
 
-kmDaPercorrere = parseInt(kmDaPercorrere);
+
 
 if (etaPasseggero < 18) {
     const prezzoKm20 = prezzoKm * 0.20;
