@@ -35,13 +35,17 @@ posso inserire un minimo / massimo di km possibili? */
  */
 alert("Ciao, di seguito ti verranno richiesti dei dati utili per calcolare il costo del biglietto!")
 
+// @ts-ignore
 let prezzoKm = 0.21;
-let etaPasseggero = prompt("Inserite la vostra età");
-etaPasseggero = parseInt(etaPasseggero);
+const eta = prompt("Inserite la vostra età");
+// @ts-ignore
+let etaPasseggero = parseInt(eta);
 
 
+// @ts-ignore
 let kmDaPercorrere = prompt("Inserite i kilometri che vorreste percorrere");
 
+// @ts-ignore
 kmDaPercorrere = parseInt(kmDaPercorrere);
 
 if (etaPasseggero < 18) {
@@ -54,7 +58,9 @@ if (etaPasseggero >= 65) {
 }
 
 
+// @ts-ignore
 let prezzoTotale = prezzoKm * kmDaPercorrere;
+// @ts-ignore
 prezzoTotale = prezzoTotale.toFixed(2);
 
 document.getElementById("dati-calcolo-biglietto").innerHTML = `

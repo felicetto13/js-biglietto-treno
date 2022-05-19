@@ -52,21 +52,24 @@ posso inserire un minimo / massimo di km possibili? */
  */
 alert("Ciao, di seguito ti verranno richiesti dei dati utili per calcolare il costo del biglietto!")
 
+// @ts-ignore
 let prezzoKm = 0.21;
-let etaPasseggero = "";
-let kmDaPercorrere = "";
+// @ts-ignore
+let etaPasseggero = 0;
+// @ts-ignore
+let kmDaPercorrere = 0;
 
 do {
-    etaPasseggero = prompt("Inserite la vostra età");
-    etaPasseggero = parseInt(etaPasseggero);
+    const eta = prompt("Inserite la vostra età");
+    etaPasseggero = parseInt(eta);
     if(isNaN(etaPasseggero) || etaPasseggero < 0 || etaPasseggero > 110){
         alert("Attenzione!! Devi inserire un valore numerico valido compreso tra 0 e 109!")
     }
 } while(isNaN(etaPasseggero) || etaPasseggero < 0 || etaPasseggero > 110 )
 
 do {
-    kmDaPercorrere = prompt("Inserite i kilometri che vorreste percorrere (fino 450km)");
-    kmDaPercorrere = parseInt(kmDaPercorrere);
+    const km = prompt("Inserite i kilometri che vorreste percorrere (fino 450km)");
+    kmDaPercorrere = parseInt(km);
     if(isNaN(kmDaPercorrere) || kmDaPercorrere < 0 || kmDaPercorrere > 450){
         alert("Attenzione!! Devi inserire un valore numerico valido compreso tra 0 e 450!")
     }
@@ -86,14 +89,15 @@ if (etaPasseggero >= 65) {
 }
 
 
+// @ts-ignore
 let prezzoTotale = prezzoKm * kmDaPercorrere;
-prezzoTotale = prezzoTotale.toFixed(2);
+prezzoTotale = parseInt(prezzoTotale.toFixed(2));
 
 document.getElementById("dati-calcolo-biglietto").innerHTML = `
                                                                 <ul>
-                                                                <li><i>L'età del passeggero è:</i> <span class="text-primary">${etaPasseggero}</span>.</li>
-                                                                <li><i>I Kilometri che vuole percorrere sono:</i> <span class="text-danger">${kmDaPercorrere}km</span>.</li>
-                                                                <li><strong><i>Il totale del biglietto sarà: </i>€ ${prezzoTotale} !</strong></li>
+                                                                <li><i>L'età del passeggero è:</i> <span class="text-primary">${etaPasseggero.toString()}</span>.</li>
+                                                                <li><i>I Kilometri che vuole percorrere sono:</i> <span class="text-danger">${kmDaPercorrere.toString()}km</span>.</li>
+                                                                <li><strong><i>Il totale del biglietto sarà: </i>€ ${prezzoTotale.toString()} !</strong></li>
                                                                 </ul>
                                                                 `;
                                                                 
